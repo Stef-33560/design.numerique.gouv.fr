@@ -41,7 +41,7 @@
       <div v-if="$page.cours.intervenants.length == 1">
         <p><strong>Formateur</strong> :</p>
         <div class="person">
-          <g-image :src="$page.cours.intervenants[0].photo[0].url" width="120" alt="" class="person__photo"/>
+          <g-image :src="$page.cours.intervenants[0].photo" width="120" alt="" class="person__photo"/>
           <p class="person__description">
             <strong class="person__name">{{ $page.cours.intervenants[0].nom }}</strong><br>
             {{ $page.cours.intervenants[0].poste }}
@@ -53,7 +53,7 @@
         <p><strong>Formateurs</strong> :</p>
         <ul class="people">
           <li v-for="intervenant in $page.cours.intervenants" class="person">
-            <g-image :src="intervenant.photo[0].url" width="120" alt="" class="person__photo"/>
+            <g-image :src="intervenant.photo" width="120" alt="" class="person__photo"/>
             <p class="person__description">
               <strong class="person__name">{{ intervenant.nom }}</strong><br>
               {{ intervenant.poste }}
@@ -226,9 +226,7 @@
       intervenants (sortBy: "name", order: DESC) {
         nom
         poste
-        photo {
-          url
-        }
+        photo
       }
       descriptionCourte
       descriptionLongue
